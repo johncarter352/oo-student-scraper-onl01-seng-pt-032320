@@ -16,12 +16,11 @@ class Scraper
       students_hash << hash
     end
     students_hash
-  end	  end
+  end
 
 
   def self.scrape_index_page(profile_url)
     students_hash = {}
-  end	
   
     html = Nokogiri::HTML(open(profile_url))
     html.css("div.social-icon-controler a").each do |student|
@@ -36,6 +35,7 @@ class Scraper
       students_hash[:profile_quote] = html.css("div.profile-quote").text
       students_hash[:bio] = html.css("div.bio-content p").text
       students_hash
+  end
   
-
+end
 
